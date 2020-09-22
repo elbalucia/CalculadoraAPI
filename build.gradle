@@ -27,10 +27,8 @@ dependencies {
 
 test {
 	useJUnitPlatform()    
-	finalizedBy jacocoTestReport // report is always generated after tests run
-}
-
-jacoco {
-    toolVersion = "0.8.5"
-    reportsDir = file("build/jacoco/test.exec")
+	jacoco {
+		toolVersion = "0.8.5"
+        	destinationFile = file("build/jacoco/test.exec")
+	}
 }
