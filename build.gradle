@@ -28,7 +28,7 @@ dependencies {
 test {
 	useJUnitPlatform()
 	jacoco{
-		destinationFile = file('build/jacoco/Test.exec')
+		destinationFile = file('build/jacoco/test.exec')
 	}
 }
 
