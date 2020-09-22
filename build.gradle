@@ -28,7 +28,6 @@ dependencies {
 test {
 	useJUnitPlatform()    
 	jacoco {
-		toolVersion = "0.8.5"
         	destinationFile = file("build/jacoco/test.exec")
 	}
 }
