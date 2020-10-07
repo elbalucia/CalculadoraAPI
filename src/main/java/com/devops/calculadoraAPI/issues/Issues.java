@@ -31,8 +31,6 @@ public class Issues extends HttpServlet {
 		// Use anonymous authentication
 		env.put(Context.SECURITY_AUTHENTICATION, "none"); // Noncompliant
 
-		// Create the initial context
-		DirContext ctx = new InitialDirContext(env);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -84,8 +82,7 @@ public class Issues extends HttpServlet {
 			// Use anonymous authentication
 			env.put(Context.SECURITY_AUTHENTICATION, "none"); // Noncompliant
 
-			// Create the initial context
-			DirContext ctx = new InitialDirContext(env);
+	
 		}
 		
 		protected void doPost1(HttpServletRequest request, HttpServletResponse response)
@@ -141,8 +138,6 @@ public class Issues extends HttpServlet {
 				// Use anonymous authentication
 				env.put(Context.SECURITY_AUTHENTICATION, "none"); // Noncompliant
 
-				// Create the initial context
-				DirContext ctx = new InitialDirContext(env);
 				int x=2;
 				if (x == 0) {
 					 greet2("g");
@@ -215,8 +210,6 @@ public class Issues extends HttpServlet {
 					// Use anonymous authentication
 					env.put(Context.SECURITY_AUTHENTICATION, "none"); // Noncompliant
 
-					// Create the initial context
-					DirContext ctx = new InitialDirContext(env);
 					int x=2;
 					if (x == 0) {
 						 greet2("g");
