@@ -1,8 +1,3 @@
-public final class HandleRequest implements Runnable {
-  public void run() {
-    // Do something
-  }
-}
  
 public final class NetworkHandler implements Runnable {
   private static ThreadGroup tg = new ThreadGroup("Chief");
