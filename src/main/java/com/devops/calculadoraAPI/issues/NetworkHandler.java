@@ -2,11 +2,11 @@
 public final class NetworkHandler implements Runnable {
   private static ThreadGroup tg = new ThreadGroup("Chief");
  
-  @Override public void run() {
-    new Thread(tg, new HandleRequest(), "thread1").start();
-    new Thread(tg, new HandleRequest(), "thread2").start();
-    new Thread(tg, new HandleRequest(), "thread3").start();
+
+  public void run() {
+    // Do something
   }
+
  
   public static void printActiveCount(int point) {
     System.out.println("Active Threads in Thread Group " + tg.getName() +
@@ -22,7 +22,7 @@ public final class NetworkHandler implements Runnable {
  
   public static void main(String[] args) throws InterruptedException {
     // Start thread controller
-    Thread thread = new Thread(tg, new NetworkHandler(), "controller");
+    Thread thread = new Thread(tg, new NetworkHandler() , "controller");
     thread.start();
  
     // Gets the active count (insecure)
