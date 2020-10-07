@@ -14,6 +14,26 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
+import javax.persistence.Entity;
+
+@Entity
+public class Wish {
+  Long productId;
+  Long quantity;
+  Client client;
+}
+
+@Entity
+public class Client {
+  String clientId;
+  String name;
+  String password;
+}
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
 @Controller
 @SessionAttributes("hello")  // Noncompliant; this doesn't get cleaned up
 public class Issues extends HttpServlet {
@@ -23,6 +43,16 @@ public class Issues extends HttpServlet {
 		return null;
 	}
 
+	
+  @PostMapping(path = "/saveForLater")
+  public String saveForLater(Wish wish) {
+    session.save(wish);
+  }
+
+  @RequestMapping(path = "/saveForLater", method = RequestMethod.POST)
+  public String saveForLater(Wish wish) {
+    session.save(wish);
+  }
 	
 	void LdapERROR() {
 		// Set up the environment for creating the initial context
