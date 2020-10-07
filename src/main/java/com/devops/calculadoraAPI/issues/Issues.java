@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.Entity;
 
@@ -30,10 +30,10 @@ public class Client {
   String password;
 }
 
-import org.springframework.stereotype.Controller;
 
 
-@Controller
+
+@RestController
 @SessionAttributes("hello")  // Noncompliant; this doesn't get cleaned up
 public class Issues extends HttpServlet {
 
