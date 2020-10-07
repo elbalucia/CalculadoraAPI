@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-
+@Controller
+@SessionAttributes("hello")  // Noncompliant; this doesn't get cleaned up
 public class Issues extends HttpServlet {
 
 	@RequestMapping
