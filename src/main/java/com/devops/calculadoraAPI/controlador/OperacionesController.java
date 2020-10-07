@@ -16,7 +16,7 @@ public class OperacionesController {
     Operaciones calculadora;
 
     @RequestMapping(value="/suma/{n1}/{n2}",method = RequestMethod.GET)
-    public ResponseEntity<Double> suma(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
+    private ResponseEntity<Double> suma(@PathVariable("n1") double n1,@PathVariable("n2") double n2){
         return ResponseEntity.status(200).body(calculadora.suma(n1,n2));
     }
 
