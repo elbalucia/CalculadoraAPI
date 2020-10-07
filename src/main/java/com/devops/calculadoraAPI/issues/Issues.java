@@ -1,16 +1,5 @@
 package com.devops.calculadoraAPI.issues;
 
-import java.util.Date;
-import java.util.Properties;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
-
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.regex.Pattern;
@@ -273,18 +262,10 @@ public class Issues extends HttpServlet {
 				    }
 				  }
 
- private void sendHtmlTls() throws AddressException, MessagingException {        
+ private void sendHtmlTls() throws Exception {        
 		//Desencriptar password
-		String decPass = gNCCryptoHelper.decrypt(this.getPassword());
-		this.setPassword(decPass);
-        Properties properties = new Properties();
-        properties.put("mail.smtp.host", "localhost");
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-        properties.put("mail.smtp.port", "43");
-        properties.put("mail.smtp.socketFactory.port", this.getPort());  
-        properties.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");  
-        properties.put("mail.smtp.socketFactory.fallback", "false");  
+	String className = System.getProperty("messageClassName");
+Class clazz = Class.forName(className);  // Noncompliant    
        
  }
 }
