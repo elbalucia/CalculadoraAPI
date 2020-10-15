@@ -20,12 +20,6 @@ node('master') {
             ),
             disableConcurrentBuilds()            
         ])
-    
-        stage('Checkout') {
-        	echo "####################->Init Checkout<-####################"
-            checkout()
-            echo "####################->End Checkout<-####################"
-        }
         
         stage('Clean') {
         	echo "####################->Init Clean<-####################"
