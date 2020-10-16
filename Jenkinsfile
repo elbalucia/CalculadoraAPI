@@ -21,6 +21,12 @@ node('master') {
             disableConcurrentBuilds()            
         ])
         
+	stage('Checkout') {
+        	echo "####################->Init Checkout<-####################"
+            checkout()
+            echo "####################->End Checkout<-####################"
+        }
+	    
         stage('Clean') {
         	echo "####################->Init Clean<-####################"
             sh './gradlew clean'
@@ -66,7 +72,7 @@ def checkout(){
                 gitTool: 'git', 
                 submoduleCfg: [], 
                 userRemoteConfigs: [[
-                    credentialsId: 'GitHub-Juliancho923', 
+                    credentialsId: 'Github-Juliancho923', 
                     url: 'https://github.com/JULIANCHO923/CalculadoraAPI'
                 ]]
             ])
