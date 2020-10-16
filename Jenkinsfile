@@ -29,26 +29,26 @@ node('master') {
 	    
         stage('Clean') {
         	echo "####################->Init Clean<-####################"
-            sh './gradlew clean'
+            sh './gradle clean'
             echo "####################->End Clean<-####################"
         }
         
         stage('Compile') {
         	echo "####################->Init Compile<-####################"
-            sh './gradlew compileJava'
+            sh './gradle compileJava'
             echo "####################->End Compile<-####################"
         }
 			
 	stage('Test') {
         	echo "####################->Init Unit Test<-####################"
-            sh './gradlew test'
+            sh './gradle test'
             junit '**/build/test-results/test/*.xml'
             echo "####################->End Unit Test<-####################"
         }
       	    
         stage('Build') {
         	echo "####################->Init Build<-####################"
-           sh './gradlew build -x test'
+           sh './gradle build -x test'
             echo "####################->End Build<-####################"
         }        
         
