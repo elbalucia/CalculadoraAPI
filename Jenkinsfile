@@ -23,26 +23,26 @@ node('master') {
         
         stage('Clean') {
         	echo "####################->Init Clean<-####################"
-            bat './gradlew clean'
+            sh './gradlew clean'
             echo "####################->End Clean<-####################"
         }
         
         stage('Compile') {
         	echo "####################->Init Compile<-####################"
-            bat './gradlew compileJava'
+            sh './gradlew compileJava'
             echo "####################->End Compile<-####################"
         }
 			
 	stage('Test') {
         	echo "####################->Init Unit Test<-####################"
-            bat './gradlew test'
+            sh './gradlew test'
             junit '**/build/test-results/test/*.xml'
             echo "####################->End Unit Test<-####################"
         }
       	    
         stage('Build') {
         	echo "####################->Init Build<-####################"
-            bat './gradlew build -x test'
+           sh './gradlew build -x test'
             echo "####################->End Build<-####################"
         }        
         
