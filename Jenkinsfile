@@ -29,8 +29,8 @@ node('master') {
 	    
         stage('Clean') {
         	echo "####################->Init Clean<-####################"
-		ls -l
-		id
+		sh 'ls -l'
+		sh 'id'
             sh './gradle clean'
             echo "####################->End Clean<-####################"
         }
