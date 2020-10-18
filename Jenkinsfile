@@ -8,7 +8,7 @@ node('master') {
         //Tools
         env.JAVA_HOME="${tool 'openjdk-8'}"
         env.GRADLE="${tool 'gradle-6-7'}"        
-	en.SONAR_SCANNER ="${tool 'sonarqube_personal'}";
+	en.SONAR_SCANNER="${tool 'sonarqube_personal'}";
         
 	env.errorEncontrado = ""
     
