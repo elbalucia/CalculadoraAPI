@@ -33,26 +33,26 @@ node('master') {
 		sh 'id'
 	    sh 'chmod +x gradlew'
 		sh 'ls -l'		
-            sh './gradle clean'
+            sh './gradlew clean'
             echo "####################->End Clean<-####################"
         }
         
         stage('Compile') {
         	echo "####################->Init Compile<-####################"
-            sh './gradle compileJava'
+            sh './gradlew compileJava'
             echo "####################->End Compile<-####################"
         }
 			
 	stage('Test') {
         	echo "####################->Init Unit Test<-####################"
-            sh './gradle test'
+            sh './gradlew test'
             junit '**/build/test-results/test/*.xml'
             echo "####################->End Unit Test<-####################"
         }
 	    
        stage('Build') {
         	echo "####################->Init Build<-####################"
-           sh './gradle build -x test'
+           sh './gradlew build -x test'
             echo "####################->End Build<-####################"
         }        
         
