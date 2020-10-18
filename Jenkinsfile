@@ -8,9 +8,9 @@ node('master') {
         //Tools
         env.JAVA_HOME="${tool 'openjdk-8'}"
         env.GRADLE="${tool 'gradle-6-7'}"        
-       
-        env.errorEncontrado = ""
-    
+	en.SONAR_SCANNER ="${tool 'sonarqube_personal'}";
+        
+	env.errorEncontrado = ""
     
         properties([
             buildDiscarder(
@@ -31,6 +31,8 @@ node('master') {
         	echo "####################->Init Clean<-####################"
 		sh 'ls -l'
 		sh 'id'
+	    sh 'chmod +x gradlew'
+		sh 'ls -l'		
             sh './gradle clean'
             echo "####################->End Clean<-####################"
         }
@@ -47,8 +49,8 @@ node('master') {
             junit '**/build/test-results/test/*.xml'
             echo "####################->End Unit Test<-####################"
         }
-      	    
-        stage('Build') {
+	    
+       stage('Build') {
         	echo "####################->Init Build<-####################"
            sh './gradle build -x test'
             echo "####################->End Build<-####################"
