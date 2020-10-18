@@ -49,6 +49,15 @@ node('master') {
             junit '**/build/test-results/test/*.xml'
             echo "####################->End Unit Test<-####################"
         }
+
+	stage('SonarQube') {
+        	echo "####################->Init SonarQube<-####################"
+           withSonarQubeEnv('sonarqube') {
+            sh "${SONAR_SCANNER}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
+           }
+            echo "####################->End SonarQube<-####################"
+        }        
+	    
 	    
        stage('Build') {
         	echo "####################->Init Build<-####################"
