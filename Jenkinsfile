@@ -52,7 +52,7 @@ node('master') {
 
 	stage('SonarQube') {
         	echo "####################->Init SonarQube<-####################"
-           withSonarQubeEnv('sonarqube') {
+           withSonarQubeEnv('sonarqube_local') {
             sh "${SONAR_SCANNER}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
            }
             echo "####################->End SonarQube<-####################"
