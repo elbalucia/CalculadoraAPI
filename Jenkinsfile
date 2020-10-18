@@ -6,8 +6,8 @@ node('master') {
     try{
        
         //Tools
-        env.JAVA_HOME="${tool 'jdk-9-0-4'}"
-        env.GRADLE="${tool 'gradle-6-6-1'}"        
+        env.JAVA_HOME="${tool 'openjdk-8'}"
+        env.GRADLE="${tool 'gradle-6-7'}"        
        
         env.errorEncontrado = ""
     
@@ -74,7 +74,7 @@ def checkout(){
                 gitTool: 'git', 
                 submoduleCfg: [], 
                 userRemoteConfigs: [[
-                    credentialsId: 'Github-Juliancho923', 
+                    credentialsId: 'github_personal', 
                     url: 'https://github.com/JULIANCHO923/CalculadoraAPI'
                 ]]
             ])
