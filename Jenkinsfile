@@ -28,11 +28,8 @@ node('master') {
         }
 	    
         stage('Clean') {
-        	echo "####################->Init Clean<-####################"
-		sh 'ls -l'
-		sh 'id'
-	    sh 'chmod +x gradlew'
-		sh 'ls -l'		
+            echo "####################->Init Clean<-####################"
+	    sh 'chmod +x gradlew'		
             sh './gradlew clean'
             echo "####################->End Clean<-####################"
         }
