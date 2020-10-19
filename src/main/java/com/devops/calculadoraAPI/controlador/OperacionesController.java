@@ -37,15 +37,4 @@ public class OperacionesController {
         return ResponseEntity.status(200).body(calculadora.division(n1,n2));
     }
 
-    @RequestMapping(value="/ip",method = RequestMethod.GET)
-    public ResponseEntity<String> ip(){
-        try {
-            InetAddress address = InetAddress.getLocalHost();            
-            return ResponseEntity.status(200).body(address.getHostAddress() +" -- " + address.getHostName());            
-        } catch (Exception e) {
-            e.printStackTrace();
-            return ResponseEntity.status(500).body("Error al intentar obetner la direccion ip");
-        }
-    }
-
 }
